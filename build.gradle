@@ -1,0 +1,47 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.maytech.ourceo'
+version = '1.0.0-RELEASE'
+sourceCompatibility = 1.8
+
+repositories {
+
+    mavenCentral()
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-websocket')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile('mysql:mysql-connector-java')
+    compile('org.springframework.boot:spring-boot-starter-test')
+    compile('com.h2database:h2')
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("commons-io:commons-io:2.6")
+    compile("org.apache.poi:poi-ooxml:3.9")
+    testCompile("junit:junit")
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.2.1'
+}
